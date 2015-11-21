@@ -18,7 +18,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 
 import xyz.BreachMC.Core.Essentials.Broadcast;
-import xyz.BreachMC.Core.Events.*;
+import xyz.BreachMC.Core.Events.Join;
 
 /**
  * Created by jesse.
@@ -70,7 +70,7 @@ void setup(){
     Bukkit.getPluginManager().registerEvents(new Menus(), this);
     Bukkit.getPluginManager().registerEvents(new AliasCmds(), this);
     Bukkit.getPluginManager().registerEvents(this, this);
-    Bukkit.getPluginManager().registerEvents(new InventoryChange(), this);
+    Bukkit.getPluginManager().registerEvents(new Join(), this);
 }
 
 

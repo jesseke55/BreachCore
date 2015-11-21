@@ -53,6 +53,9 @@ void setup(){
     Config();
     WorldDL();
     Bukkit.getPluginManager().registerEvents(new MineRewards(), this);
+    Bukkit.getPluginManager().registerEvents(new GameClickEvent(), this);
+    Bukkit.getPluginManager().registerEvents(new Warp(), this);
+    Bukkit.getPluginManager().registerEvents(new Menus(), this);
 }
 
 

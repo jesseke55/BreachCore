@@ -2,6 +2,7 @@ package xyz.BreachMC.Core;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import xyz.BreachMC.Core.util.ItemBuilder;
 import xyz.BreachMC.Core.util.MenuBuilder;
@@ -9,7 +10,7 @@ import xyz.BreachMC.Core.util.MenuBuilder;
 /**
  * Created by Jesse on 21-11-2015.
  */
-public class Menus {
+public class Menus implements Listener{
 
     public Inventory Warps(){
         MenuBuilder menu = new MenuBuilder(54, ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Menu.Name")));

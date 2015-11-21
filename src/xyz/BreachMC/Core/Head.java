@@ -12,8 +12,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.BreachMC.Core.Essentials.Broadcast;
 
 /**
  * Created by jesse.
@@ -38,6 +38,13 @@ public class Head extends JavaPlugin implements CommandExecutor{
     public void onEnable(){
         plugin = this;
         setup();
+        getCommand("broadcast").setExecutor(new Broadcast());
+        getCommand("bc").setExecutor(new Broadcast() );
+        getCommand("ebroadcast").setExecutor(new Broadcast() );
+        getCommand("ebc").setExecutor(new Broadcast() );
+        getCommand("bcast").setExecutor(new Broadcast() );
+        getCommand("ebcast").setExecutor(new Broadcast() );
+        
         getCommand("resetmines").setExecutor(new ResetMines());
         getCommand("warp").setExecutor(new Warp() );
 
@@ -390,33 +397,6 @@ void Prefixc(){
 
         if(label.equalsIgnoreCase("ip")){
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "Our server IP: " + Head.plugin.getConfig().getString("IP")));
-        }
-        if (label.equalsIgnoreCase("broadcast") || (label.equalsIgnoreCase("bc")) || (label.equalsIgnoreCase("ebc")) || (label.equalsIgnoreCase("bcast")) || (label.equalsIgnoreCase("ebcast")) || (label.equalsIgnoreCase("ebroadcast")))
-        {
-            if (!sender.hasPermission("breach.cmds.bc"))
-            {
-                sender.sendMessage(this.noperms);
-                return false;
-            }
-            if (args.length == 0)
-            {
-                sender.sendMessage(ChatColor.RED + "You need to type something!");
-                return false;
-            }
-            for (Player p : Bukkit.getOnlinePlayers())
-            {
-                String msg = "";
-                String[] arrayOfString;
-                int j = (arrayOfString = args).length;
-                for (int i = 0; i < j; i++)
-                {
-                    String s = arrayOfString[i];
-                    msg = msg + s + " ";
-                }
-                msg = msg.substring(0, msg.length());
-                msg = ChatColor.translateAlternateColorCodes('&', msg);
-                p.sendMessage(this.prefix + " " + msg);
-            }
         }
 
 

@@ -7,10 +7,10 @@ import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.BreachMC.Core.Essentials.Broadcast;
@@ -19,7 +19,7 @@ import xyz.BreachMC.Core.Essentials.Broadcast;
  * Created by jesse.
  * Created at: 8-11-15, 18:53.
  */
-public class Head extends JavaPlugin implements CommandExecutor{
+public class Head extends JavaPlugin implements Listener{
     String prefix;
     String etcprefix;
     String autosavecomplete;
@@ -44,7 +44,7 @@ public class Head extends JavaPlugin implements CommandExecutor{
         getCommand("ebc").setExecutor(new Broadcast() );
         getCommand("bcast").setExecutor(new Broadcast() );
         getCommand("ebcast").setExecutor(new Broadcast() );
-        
+
         getCommand("resetmines").setExecutor(new ResetMines());
         getCommand("warp").setExecutor(new Warp() );
 
@@ -63,6 +63,8 @@ void setup(){
     Bukkit.getPluginManager().registerEvents(new GameClickEvent(), this);
     Bukkit.getPluginManager().registerEvents(new Warp(), this);
     Bukkit.getPluginManager().registerEvents(new Menus(), this);
+    Bukkit.getPluginManager().registerEvents(new AliasCmds(), this);
+    Bukkit.getPluginManager().registerEvents(this, this);
 }
 
 

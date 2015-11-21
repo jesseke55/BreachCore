@@ -1,5 +1,6 @@
 package xyz.BreachMC.Core;
 
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,10 +14,11 @@ public class Warp implements CommandExecutor, Listener {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 
-        if(label.equalsIgnoreCase("warp") || (label.equalsIgnoreCase("ewarp"))|| (label.equalsIgnoreCase("warps")) || (label.equalsIgnoreCase("ewarps"))){
+        if(label.equalsIgnoreCase("warp")){
 
             Player p = (Player)sender;
             p.openInventory(new Menus().Warps());
+            p.playSound(p.getLocation(), Sound.NOTE_PLING, 0F, 0F);
 
         }
 

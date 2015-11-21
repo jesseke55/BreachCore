@@ -1,0 +1,46 @@
+package xyz.BreachMC.Core.Events;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import xyz.BreachMC.Core.Head;
+import xyz.BreachMC.Core.Menus;
+
+/**
+ * Created by Jesse on 21-11-2015.
+ */
+public class GameClickEvent implements Listener {
+
+
+    Head INSTANCE;
+
+    @EventHandler
+    public void clickEvent(InventoryClickEvent e) {
+        Player p = (Player) e.getWhoClicked();
+        e.setCancelled(true);
+
+
+        if (e.getInventory().getName().equals(new Menus().Warps().getName())) {
+
+            /** Basic rank warps */
+            for (char c = 'A'; c <= 'Z'; c++) {
+                if (e.getCurrentItem() != null && e.getCurrentItem().hasItemMeta() && e.getCurrentItem().getItemMeta().hasDisplayName()) {
+                    if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', INSTANCE.getConfig().getString("Warp.Ranks." + c + ".Name"))))
+                        Bukkit.dispatchCommand(p, INSTANCE.getConfig().getString("Warp.Ranks." + c + ".Command"));
+                }
+            }
+
+            /** Other warps */
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', INSTANCE.getConfig().getString("Warp.Warps.DSG.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.DSG.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', INSTANCE.getConfig().getString("Warp.Warps.Plots.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Plots.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', INSTANCE.getConfig().getString("Warp.Warps.Crates.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Crates.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', INSTANCE.getConfig().getString("Warp.Warps.PvP.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.PvP.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', INSTANCE.getConfig().getString("Warp.Warps.Spawn.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Spawn.Command"));
+            }
+
+            /** Custom commands etc */
+        }
+    }

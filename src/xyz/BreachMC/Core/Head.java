@@ -2,6 +2,8 @@ package xyz.BreachMC.Core;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -13,7 +15,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+
 import xyz.BreachMC.Core.Essentials.Broadcast;
+import xyz.BreachMC.Core.Events.*;
 
 /**
  * Created by jesse.
@@ -65,6 +70,7 @@ void setup(){
     Bukkit.getPluginManager().registerEvents(new Menus(), this);
     Bukkit.getPluginManager().registerEvents(new AliasCmds(), this);
     Bukkit.getPluginManager().registerEvents(this, this);
+    Bukkit.getPluginManager().registerEvents(new InventoryChange(), this);
 }
 
 

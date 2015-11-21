@@ -38,4 +38,3 @@ commands:
   warp:
     description: List all warps or warp to the specified location.
     usage: /<command>
-    aliases: [ewarp,warps,ewarps]

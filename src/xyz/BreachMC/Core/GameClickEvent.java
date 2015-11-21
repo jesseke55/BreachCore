@@ -36,14 +36,16 @@ public class GameClickEvent implements Listener {
             }
 
             /** Other warps */
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.DSG.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.DSG.Command"));
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Plots.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Plots.Command"));
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Crates.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Crates.Command"));
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.PvP.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.PvP.Command"));
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Spawn.Name")))) Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Spawn.Command"));
-            }
-
-            /** Custom commands etc */
-        p.playSound(p.getLocation(), Sound.NOTE_PLING, 1, 1);
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.DSG.Name"))))
+                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.DSG.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Plots.Name"))))
+                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Plots.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Crates.Name"))))
+                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Crates.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.PvP.Name"))))
+                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.PvP.Command"));
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Spawn.Name"))))
+                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Spawn.Command"));
         }
     }
+}

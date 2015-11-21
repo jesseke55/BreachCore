@@ -1,0 +1,41 @@
+name: BreachCore
+version: 1.0
+main: xyz.BreachMC.Core.Head
+authors: [jesseke55, ProtocollWeb, BreachMC]
+website: www.breachmc.xyz
+description: The main plugin of Breach MC!
+
+
+commands:
+  rlconfig:
+    usage: /<command>
+    description: Reload the plugin config of Breach Core
+  broadcast:
+    usage: /<command>
+    description: Broadcast a message on the server.
+    aliases: [bc,ebc,bcast,ebcast,ebroadcast]
+  ping:
+    usage: /<command>
+    description: Pong!
+    aliases: [echo,eecho,eping,pong,epong]
+  save:
+    usage: /<command>
+    description: Save all worlds!
+  vote:
+    usage: /<command>
+    description: View all voting links
+  ip:
+    usage: /<command>
+    description: Get the server IP
+  clearchat:
+    usage: /<command>
+    aliases: [cc, chatclear, cchat]
+    description: Clear the server chat
+  resetmines:
+    usage: /<command>
+    aliases: [reset, minereset, iwantreset]
+    description: Reset all mines on the server!
+  warp:
+    description: List all warps or warp to the specified location.
+    usage: /<command>
+    aliases: [ewarp,warps,ewarps]

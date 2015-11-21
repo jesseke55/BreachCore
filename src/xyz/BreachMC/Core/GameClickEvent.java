@@ -37,15 +37,15 @@ public class GameClickEvent implements Listener {
 
             /** Other warps */
             if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.DSG.Name"))))
-                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.DSG.Command"));
+                System.out.println("DSG is nu gebruikt");;
             if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Plots.Name"))))
-                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Plots.Command"));
+                System.out.println("Plots is nu gebruikt");;
             if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Crates.Name"))))
-                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Crates.Command"));
+                System.out.println("Crates is nu gebruikt");
             if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.PvP.Name"))))
-                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.PvP.Command"));
+                System.out.println("PVP is nu gebruikt");;
             if (e.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Warp.Warps.Spawn.Name"))))
-                Bukkit.dispatchCommand(p, Head.plugin.getConfig().getString("Warp.Warps.Spawn.Command"));
+                System.out.println("Spawn is nu gebruikt");;
         }
     }
 }

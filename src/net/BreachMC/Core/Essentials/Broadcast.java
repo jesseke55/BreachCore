@@ -13,7 +13,7 @@ import net.BreachMC.Core.Main;
  */
 public class Broadcast implements CommandExecutor {
 
-    Main INSTANCE;
+    Plugin INSTANCE = Main.getPlugin();
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
         if (label.equalsIgnoreCase("broadcast") || (label.equalsIgnoreCase("bc")) || (label.equalsIgnoreCase("ebc")) || (label.equalsIgnoreCase("bcast")) || (label.equalsIgnoreCase("ebcast")) || (label.equalsIgnoreCase("ebroadcast")))

@@ -28,20 +28,14 @@ public class Broadcast implements CommandExecutor {
                 sender.sendMessage(ChatColor.RED + "You need to type something!");
                 return false;
             }
-            for (Player p : Bukkit.getOnlinePlayers())
-            {
-                String msg = "";
-                String[] arrayOfString;
-                int j = (arrayOfString = args).length;
-                for (int i = 0; i < j; i++)
-                {
-                    String s = arrayOfString[i];
-                    msg = msg + s + " ";
-                }
-                msg = msg.substring(0, msg.length());
-                msg = ChatColor.translateAlternateColorCodes('&', msg);
-                p.sendMessage(INSTANCE.getConfig().getString("Prefixes.Prefix") + msg);
+            
+            String msg = "";
+            
+            for(int i = 0; i < args.length; i++) {
+                msg += args[i] + " ";
             }
+            
+            Bukkit.broadcastMessage(ChatColor.translateAlternateColors('&', msg.trim());
         }
         return false;
     }

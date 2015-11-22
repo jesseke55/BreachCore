@@ -21,5 +21,6 @@ public class Join implements Listener {
 
     public void onJoin(PlayerJoinEvent e){
         e.setJoinMessage(ChatColor.translateAlternateColorCodes('&', instance.getConfig().getString("Join.Join")));
+
     }
 }

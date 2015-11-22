@@ -336,7 +336,7 @@ void Prefixc(){
 
         getConfig().addDefault("no-permission", "&4&lYou don`t have permission for this command!");
         getConfig().addDefault("Join.Whitelist", "\n&4Sorry but this server is currently under &b&lCONSTRUCTION!");
-        getConfig().addDefault("Join.Join", "&");
+        getConfig().addDefault("Join.Join", "&e&lJOINED %player%");
 
 
         savec();

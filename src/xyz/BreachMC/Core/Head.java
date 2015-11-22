@@ -335,7 +335,8 @@ void Prefixc(){
         getConfig().addDefault("Prefixes.headerandfooter", "&8&l&m+----------------------------------+");
 
         getConfig().addDefault("no-permission", "&4&lYou don`t have permission for this command!");
-
+        getConfig().addDefault("Join.Whitelist", "\n&4Sorry but this server is currently under &b&lCONSTRUCTION!");
+        getConfig().addDefault("Join.Join", "&");
 
 
         savec();

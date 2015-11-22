@@ -57,4 +57,10 @@ public class Menus implements Listener{
 
         return menu.getInventory();
     }
+
+    public Inventory donor(){
+        MenuBuilder menu = new MenuBuilder(18, ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Donors.donormenu.name")));
+
+        return menu.getInventory();
+    }
 }

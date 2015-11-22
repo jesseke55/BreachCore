@@ -100,6 +100,7 @@ public class Main extends JavaPlugin implements Listener{
 
     private void Warp(){
         getConfig().addDefault("Warp.Menu.Name", "&8Warps");
+        WorldWarp();
         ARank();
         BRank();
         CRank();
@@ -127,7 +128,12 @@ public class Main extends JavaPlugin implements Listener{
         YRank();
         ZRank();
         OtherWarps();
+        getConfig().addDefault("Warp.tp", "&3&lPrison &b&l>> Teleporting you to ");
 
+    }
+
+    void WorldWarp(){
+        getConfig().addDefault("Warp.World", "Mines");
     }
 
     void ARank(){
@@ -139,77 +145,92 @@ public class Main extends JavaPlugin implements Listener{
         getConfig().addDefault("Warp.Ranks.B.Name", "&eB");
         getConfig().addDefault("Warp.Ranks.B.Lore", "&7Click here to go to the &eB &7Mine");
         getConfig().addDefault("Warp.Ranks.B.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.B.Teleport", "Teleporting you to &eB");
     }
     void CRank(){
         getConfig().addDefault("Warp.Ranks.C.Name", "&eC");
         getConfig().addDefault("Warp.Ranks.C.Lore", "&7Click here to go to the &eC &7Mine");
         getConfig().addDefault("Warp.Ranks.C.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.C.Teleport", "Teleporting you to &eC");
     }
     void DRank(){
         getConfig().addDefault("Warp.Ranks.D.Name", "&eD");
         getConfig().addDefault("Warp.Ranks.D.Lore", "&7Click here to go to the &eD &7Mine");
         getConfig().addDefault("Warp.Ranks.D.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.D.Teleport", "Teleporting you to &eD");
     }
 
     void ERank(){
         getConfig().addDefault("Warp.Ranks.E.Name", "&6E");
         getConfig().addDefault("Warp.Ranks.E.Lore", "&7Click here to go to the &6E &7Mine");
         getConfig().addDefault("Warp.Ranks.E.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.E.Teleport", "Teleporting you to &6E");
     }
     void FRank(){
         getConfig().addDefault("Warp.Ranks.F.Name", "&6F");
         getConfig().addDefault("Warp.Ranks.F.Lore", "&7Click here to go to the &6E &7Mine");
         getConfig().addDefault("Warp.Ranks.F.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.F.Teleport", "Teleporting you to &6F");
     }
     void GRank(){
         getConfig().addDefault("Warp.Ranks.G.Name", "&6G");
         getConfig().addDefault("Warp.Ranks.G.Lore", "&7Click here to go to the &6G &7Mine");
         getConfig().addDefault("Warp.Ranks.G.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.G.Teleport", "Teleporting you to &6G");
     }
     void HRank(){
         getConfig().addDefault("Warp.Ranks.H.Name", "&6H");
         getConfig().addDefault("Warp.Ranks.H.Lore", "&7Click here to go to the &6H &7Mine");
         getConfig().addDefault("Warp.Ranks.H.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.H.Teleport", "Teleporting you to &6H");
     }
     void IRank(){
         getConfig().addDefault("Warp.Ranks.I.Name", "&6I");
         getConfig().addDefault("Warp.Ranks.I.Lore", "&7Click here to go to the &6I &7Mine");
         getConfig().addDefault("Warp.Ranks.I.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.I.Teleport", "Teleporting you to &6I");
     }
     void JRank(){
         getConfig().addDefault("Warp.Ranks.J.Name", "&cJ");
         getConfig().addDefault("Warp.Ranks.J.Lore", "&7Click here to go to the &cJ &7Mine");
         getConfig().addDefault("Warp.Ranks.J.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.J.Teleport", "Teleporting you to &cJ");
     }
     void KRank(){
         getConfig().addDefault("Warp.Ranks.K.Name", "&cK");
         getConfig().addDefault("Warp.Ranks.K.Lore", "&7Click here to go to the &cK &7Mine");
         getConfig().addDefault("Warp.Ranks.K.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.K.Teleport", "Teleporting you to &cK");
     }
     void LRank(){
         getConfig().addDefault("Warp.Ranks.L.Name", "&cL");
         getConfig().addDefault("Warp.Ranks.L.Lore", "&7Click here to go to the &cL &7Mine");
         getConfig().addDefault("Warp.Ranks.L.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.L.Teleport", "Teleporting you to &cL");
     }
     void MRank(){
         getConfig().addDefault("Warp.Ranks.M.Name", "&cM");
         getConfig().addDefault("Warp.Ranks.M.Lore", "&7Click here to go to the &cM &7Mine");
         getConfig().addDefault("Warp.Ranks.M.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.M.Teleport", "Teleporting you to &cM");
     }
     void NRank(){
         getConfig().addDefault("Warp.Ranks.N.Name", "&cN");
         getConfig().addDefault("Warp.Ranks.N.Lore", "&7Click here to go to the &cN &7Mine");
         getConfig().addDefault("Warp.Ranks.N.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.N.Teleport", "Teleporting you to &cN");
     }
     void ORank(){
         getConfig().addDefault("Warp.Ranks.O.Name", "&1O");
         getConfig().addDefault("Warp.Ranks.O.Lore", "&7Click here to go to the &1O &7Mine");
         getConfig().addDefault("Warp.Ranks.O.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.O.Teleport", "Teleporting you to &1O");
     }
     void PRank(){
         getConfig().addDefault("Warp.Ranks.P.Name", "&cP");
         getConfig().addDefault("Warp.Ranks.P.Lore", "&7Click here to go to the &cP &7Mine");
         getConfig().addDefault("Warp.Ranks.P.Command", "essentials:warp ");
+        getConfig().addDefault("Warp.Ranks.P.Teleport", "Teleporting you to &1P");
     }
     void QRank(){
         getConfig().addDefault("Warp.Ranks.Q.Name", "&4Q");

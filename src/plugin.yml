@@ -1,6 +1,6 @@
 name: BreachCore
 version: 1.0
-main: xyz.BreachMC.Core.Main
+main: net.BreachMC.Core.Main
 authors: [jesseke55, ProtocollWeb, BreachMC]
 website: www.breachmc.xyz
 description: The main plugin of Breach MC!
@@ -37,4 +37,4 @@ commands:
     description: Reset all mines on the server!
   warp:
     description: List all warps or warp to the specified location.
-    usage: /<command>
+    usage: /<command> [warp]

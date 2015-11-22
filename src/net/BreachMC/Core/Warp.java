@@ -1,4 +1,4 @@
-package xyz.BreachMC.Core;
+package net.BreachMC.Core;
 
 import org.bukkit.Sound;
 import org.bukkit.command.Command;

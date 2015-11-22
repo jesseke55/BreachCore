@@ -1,4 +1,4 @@
-package xyz.BreachMC.Core.Essentials;
+package net.BreachMC.Core.Essentials;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -6,14 +6,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.BreachMC.Core.Head;
+import net.BreachMC.Core.Main;
 
 /**
  * Created by Jesse on 21-11-2015.
  */
 public class Broadcast implements CommandExecutor {
 
-    Head INSTANCE;
+    Main INSTANCE;
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
         if (label.equalsIgnoreCase("broadcast") || (label.equalsIgnoreCase("bc")) || (label.equalsIgnoreCase("ebc")) || (label.equalsIgnoreCase("bcast")) || (label.equalsIgnoreCase("ebcast")) || (label.equalsIgnoreCase("ebroadcast")))

@@ -1,4 +1,4 @@
-package xyz.BreachMC.Core.util;
+package net.BreachMC.Core.util;
 
 import org.bukkit.Color;
 import org.bukkit.Material;

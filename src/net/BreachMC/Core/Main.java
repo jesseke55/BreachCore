@@ -1,9 +1,8 @@
-package xyz.BreachMC.Core;
+package net.BreachMC.Core;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-
-
+import net.BreachMC.Core.Essentials.Broadcast;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -15,22 +14,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-
-
-import xyz.BreachMC.Core.Essentials.Broadcast;
-import xyz.BreachMC.Core.Events.Join;
+import net.BreachMC.Core.Listeners.Join;
 
 /**
  * Created by jesse.
  * Created at: 8-11-15, 18:53.
  */
-public class Head extends JavaPlugin implements Listener{
-    String prefix;
-    String etcprefix;
-    String autosavecomplete;
-    String autosavemsg;
-    String noperms;
-    String ip;
+public class Main extends JavaPlugin implements Listener{
+    private String prefix;
+    private String etcprefix;
+    private String autosavecomplete;
+    private String autosavemsg;
+    private String noperms;
+    private String ip;
     public int getPing(Player p)
     {
         return ((CraftPlayer)p).getHandle().ping;
@@ -60,7 +56,7 @@ public class Head extends JavaPlugin implements Listener{
         plugin = null;
     }
 
-void setup(){
+    private void setup(){
     Save();
     Config();
     WorldDL();
@@ -74,24 +70,26 @@ void setup(){
 }
 
 
-    void Save(){
+    private void Save(){
+
+
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             public void run() {
-                Bukkit.broadcastMessage(Head.this.prefix + Head.this.autosavemsg);
+                Bukkit.broadcastMessage(Main.this.prefix + Main.this.autosavemsg);
                 for (World w : Bukkit.getWorlds()) {
                     w.save();
                     w.setAutoSave(true);
                     w.setKeepSpawnInMemory(false);
 
                 }
-                Bukkit.broadcastMessage(Head.this.prefix + Head.this.autosavecomplete);
+                Bukkit.broadcastMessage(Main.this.prefix + Main.this.autosavecomplete);
             }
         }, 0L, 1200 * getConfig().getInt("AutoSaveInterval"));
 
 
 
     }
-void Prefixc(){
+    private void Prefixc(){
     getConfig().addDefault("Prefixes.Prefix", "&8[&c&lBreach &8&lPrison&8] &a");
     getConfig().addDefault("Prefixes.reload-completed", "&aThe config has been reloaded!");
     getConfig().addDefault("Prefixes.ETCPrefix", "&8&l>> &e");
@@ -100,7 +98,7 @@ void Prefixc(){
 }
 
 
-    void Warp(){
+    private void Warp(){
         getConfig().addDefault("Warp.Menu.Name", "&8Warps");
         ARank();
         BRank();
@@ -392,11 +390,11 @@ void Prefixc(){
 
         if (label.equalsIgnoreCase("rlconfig")) {
             if (!sender.hasPermission("breach.cmds.bc")) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Prefixes.PrisonPrefix") + Head.plugin.getConfig().getString("no-permission")));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + Main.plugin.getConfig().getString("no-permission")));
                 return false;
             }
             reloadConfig();
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Prefixes.PrisonPrefix") + getConfig().getString("Prefixes.reload-completed")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + getConfig().getString("Prefixes.reload-completed")));
             getLogger().warning("The plugin config has been reloaded!!!");
             return true;
 
@@ -405,7 +403,7 @@ void Prefixc(){
         }
 
         if(label.equalsIgnoreCase("ip")){
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "Our server IP: " + Head.plugin.getConfig().getString("IP")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "Our server IP: " + Main.plugin.getConfig().getString("IP")));
         }
 
 
@@ -418,26 +416,26 @@ void Prefixc(){
 
 
 
-            Bukkit.broadcastMessage(Head.this.prefix + Head.this.autosavemsg);
+            Bukkit.broadcastMessage(Main.this.prefix + Main.this.autosavemsg);
             for (World w : Bukkit.getWorlds()) {
                 w.save();
                 w.setAutoSave(true);
 
             }
-            Bukkit.broadcastMessage(Head.this.prefix + Head.this.autosavecomplete);
+            Bukkit.broadcastMessage(Main.this.prefix + Main.this.autosavecomplete);
             return true;
 
         }
 
         if(label.equalsIgnoreCase("vote")){
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote1")));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote2")));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote3")));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote4")));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote5")));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote6")));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote7")));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Vote.Vote8")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote1")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote2")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote3")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote4")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote5")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote6")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote7")));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Vote.Vote8")));
             return true;
 
 

@@ -1,4 +1,4 @@
-package xyz.BreachMC.Core;
+package net.BreachMC.Core;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -48,7 +48,7 @@ public class ResetMines implements CommandExecutor {
             Bukkit.dispatchCommand(sender, "mine reset FREE");
             sender.sendMessage(ChatColor.AQUA + "All mines have been reset!");
             for(Player p : Bukkit.getOnlinePlayers()){
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Head.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "Hello " + p.getName() + ".\n" +Head.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "All mines were resetted by " + sender.getName() + ".\n" + Head.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "I think that you should thank the staff member " + sender.getName() + " for resetting the mines."));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "Hello " + p.getName() + ".\n" + Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "All mines were resetted by " + sender.getName() + ".\n" + Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "I think that you should thank the staff member " + sender.getName() + " for resetting the mines."));
             }
 
         }

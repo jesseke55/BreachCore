@@ -12,6 +12,11 @@ import xyz.BreachMC.Core.Head;
 public class Join implements Listener {
 
     Head instance;
+    
+    public Join(Head head) {
+        this.instance = head;
+    }
+    
     public void onLogin(PlayerLoginEvent event){
         if (event.getResult() == PlayerLoginEvent.Result.KICK_WHITELIST) {
             event.setKickMessage(ChatColor.translateAlternateColorCodes('&', instance.getConfig().getString("Join.Whitelist")));

@@ -25,7 +25,7 @@ public class Join implements Listener {
 
     String replace(String text, String playername){
         try{
-            text = text.replace("%player", playername);
+            text = text.replace("%player%", playername);
         }catch (Exception e){
             System.out.println(e);
         }

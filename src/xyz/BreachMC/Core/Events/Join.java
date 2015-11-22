@@ -11,7 +11,6 @@ import xyz.BreachMC.Core.Head;
  */
 public class Join implements Listener {
 
-
     Head instance;
     public void onLogin(PlayerLoginEvent event){
         if (event.getResult() == PlayerLoginEvent.Result.KICK_WHITELIST) {
@@ -20,7 +19,17 @@ public class Join implements Listener {
     }
 
     public void onJoin(PlayerJoinEvent e){
+
         e.setJoinMessage(ChatColor.translateAlternateColorCodes('&', instance.getConfig().getString("Join.Join")));
 
+    }
+
+    String replace(String text, String playername){
+        try{
+            text = text.replace("%player", playername);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return text;
     }
 }

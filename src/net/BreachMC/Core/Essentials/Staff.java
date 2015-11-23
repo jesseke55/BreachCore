@@ -10,9 +10,10 @@ import org.bukkit.command.CommandSender;
  * Created by Jesse on 22-11-2015.
  */
 public class Staff implements CommandExecutor {
-    Main instance;
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+        final Plugin instance = Main.getPlugin();
+        
         if(label.equalsIgnoreCase("staff")){
 
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', instance.getConfig().getString("headerandfooter")));

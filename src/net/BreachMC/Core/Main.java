@@ -21,39 +21,40 @@ import net.BreachMC.Core.Listeners.Join;
  * Created at: 8-11-15, 18:53.
  */
 public class Main extends JavaPlugin implements Listener{
+    
     private String prefix;
     private String etcprefix;
     private String autosavecomplete;
     private String autosavemsg;
     private String noperms;
     private String ip;
-    public int getPing(Player p)
-    {
-        return ((CraftPlayer)p).getHandle().ping;
-    }
-    public static Plugin plugin;
-
-
-
+    
+    private static Plugin plugin;
 
     public void onEnable(){
         plugin = this;
         setup();
+        
         getCommand("broadcast").setExecutor(new Broadcast());
         getCommand("bc").setExecutor(new Broadcast() );
         getCommand("ebroadcast").setExecutor(new Broadcast() );
         getCommand("ebc").setExecutor(new Broadcast() );
         getCommand("bcast").setExecutor(new Broadcast() );
         getCommand("ebcast").setExecutor(new Broadcast() );
-
         getCommand("resetmines").setExecutor(new ResetMines());
         getCommand("warp").setExecutor(new Warp() );
-
     }
-
 
     public void onDisable(){
         plugin = null;
+    }
+
+    public static Plugin getPlugin() {
+        return plugin;
+    }
+
+    public static int getPing(Player p) {
+        return ((CraftPlayer)p).getHandle().ping;
     }
 
     private void setup(){

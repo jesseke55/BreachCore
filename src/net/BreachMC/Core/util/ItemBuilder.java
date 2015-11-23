@@ -17,50 +17,53 @@ import java.util.Arrays;
 
 
 public class ItemBuilder {
+    
     private final ItemStack stack;
+    private final ItemMeta meta;
+    
     public ItemBuilder(final Material material) {
         stack = new ItemStack(material);
+        meta = stack.getItemMeta();
     }
-    public ItemBuilder setAmount(final Integer amount) {
+    public ItemBuilder amount(final Integer amount) {
         stack.setAmount(amount);
         return this;
     }
 
-    public ItemBuilder setDisplayName(final String name) {
-        final ItemMeta meta = stack.getItemMeta();
+    public ItemBuilder name(final String name) {
         meta.setDisplayName(name);
         stack.setItemMeta(meta);
         return this;
     }
 
-    public ItemBuilder setLore(final String... lore) {
-        final ItemMeta meta = stack.getItemMeta();
+    public ItemBuilder lore(final String... lore) {
         meta.setLore(Arrays.asList(lore));
         stack.setItemMeta(meta);
         return this;
     }
 
-    public ItemBuilder addEnchant(final Enchantment enchant, final Integer level) {
+    public ItemBuilder enchant(final Enchantment enchant, final Integer level) {
         final ItemMeta meta = stack.getItemMeta();
         meta.addEnchant(enchant, level, true);
         stack.setItemMeta(meta);
         return this;
     }
 
-    public ItemBuilder setColor(final Color color) {
+    public ItemBuilder color(final Color color) {
         if (stack.equals(Material.LEATHER_BOOTS) || stack.equals(Material.LEATHER_LEGGINGS) || stack.equals(Material.LEATHER_CHESTPLATE) ||
                 stack.equals(Material.LEATHER_HELMET)) {
-            final LeatherArmorMeta meta = (LeatherArmorMeta) stack.getItemMeta();
-            meta.setColor(color);
-            stack.setItemMeta(meta);
+            final LeatherArmorMeta LAmeta = (LeatherArmorMeta) meta;
+            LAmeta.setColor(color);
+            stack.setItemMeta(LAmeta);
         }
         else {
             throw new IllegalArgumentException("setColor can only be used on leather armour!");
         }
+        
         return this;
     }
 
-    public ItemBuilder setDurability(final int durability) {
+    public ItemBuilder durability(final int durability) {
         if (durability >= Short.MIN_VALUE && durability <= Short.MAX_VALUE) {
             stack.setDurability((short)durability);
         }
@@ -71,31 +74,34 @@ public class ItemBuilder {
     }
 
     @SuppressWarnings("deprecation")
-    public ItemBuilder setData(final int data) {
+    public ItemBuilder data(final int data) {
         stack.setData(new MaterialData(data));
         return this;
     }
 
-    public ItemBuilder addFlag(final ItemFlag flag) {
-        final ItemMeta meta = stack.getItemMeta();
+    public ItemBuilder flag(final ItemFlag flag) {
         meta.addItemFlags(flag);
         stack.setItemMeta(meta);
         return this;
     }
 
-    public ItemBuilder setData(MaterialData data) {
-        final ItemMeta meta = stack.getItemMeta();
+    public ItemBuilder data(MaterialData data) {
         stack.setData(data);
         stack.setItemMeta(meta);
         return this;
     }
-    public ItemStack setOwner(ItemStack item, String name) {
-        ItemMeta meta = (ItemMeta) item.getItemMeta();
-        meta.setDisplayName(name);
-        item.setItemMeta(meta);
-        return item;
+    
+    public ItemBuilder owner(ItemStack item, String name) {
+        if(item.getType() == Material.SKULL || item.getType() == Material.SKULL_ITEM) {
+            SkullMeta SMeta = (SkullMeta) meta;
+            SMeta.setOwner(name);
+            item.setItemMeta(SMeta);
+        }
+        
+        return this;
     }
-    public ItemStack getStack() {
+    
+    public final ItemStack getStack() {
         return stack;
     }
 }

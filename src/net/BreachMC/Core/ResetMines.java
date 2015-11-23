@@ -51,7 +51,7 @@ public class ResetMines implements CommandExecutor {
             Bukkit.dispatchCommand(sender, "mine reset specialmine");
             sender.sendMessage(ChatColor.AQUA + "All mines have been reset!");
             for(Player p : Bukkit.getOnlinePlayers()){
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "Hello " + p.getName() + ".\n" + Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "All mines were resetted by " + sender.getName() + ".\n" + Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "I think that you should thank the staff member " + sender.getName() + " for resetting the mines."));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "Hello " + p.getName() + ".\n" + Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "All mines were resetted by " + sender.getName() + ".\n" + Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "I think that you should thank the staff member " + sender.getName() + " for resetting the mines."));
             }
 
         }

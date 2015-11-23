@@ -35,39 +35,39 @@ public class Warp implements CommandExecutor, Listener {
 
                 }
                 else if (args[0].equalsIgnoreCase("a")) {
-                    p.teleport(new Location(Bukkit.getWorld(Main.plugin.getConfig().getString("Warp.World")), -318.5, 67, -183.5, (float) 180.0, (float) 0.9));
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Warp.tp") + Main.plugin.getConfig().getString("Warp.Ranks.A.Name")));
+                    p.teleport(new Location(Bukkit.getWorld(Main.getPlugin().getConfig().getString("Warp.World")), -318.5, 67, -183.5, (float) 180.0, (float) 0.9));
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Warp.tp") + Main.getPlugin().getConfig().getString("Warp.Ranks.A.Name")));
                 }
                 else if (args[0].equalsIgnoreCase("B")) {
                     if(p.hasPermission("warp.rank.b")) {
-                        p.teleport(new Location(Bukkit.getWorld(Main.plugin.getConfig().getString("Warp.World")), -318.5, 68, -249.5, (float) 180.0, (float) 0.3));
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Warp.tp") + Main.plugin.getConfig().getString("Warp.Ranks.B.Name")));
+                        p.teleport(new Location(Bukkit.getWorld(Main.getPlugin().getConfig().getString("Warp.World")), -318.5, 68, -249.5, (float) 180.0, (float) 0.3));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Warp.tp") + Main.getPlugin().getConfig().getString("Warp.Ranks.B.Name")));
                     }else{
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("no-permission")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("no-permission")));
                     }
                 }
                 else if (args[0].equalsIgnoreCase("C")) {
                     if(p.hasPermission("warp.rank.c")) {
-                        p.teleport(new Location(Bukkit.getWorld(Main.plugin.getConfig().getString("Warp.World")), -318.5, 68, -316.5, (float) 179.9, (float) 0.5));
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Warp.tp") + Main.plugin.getConfig().getString("Warp.Ranks.C.Name")));
+                        p.teleport(new Location(Bukkit.getWorld(Main.getPlugin().getConfig().getString("Warp.World")), -318.5, 68, -316.5, (float) 179.9, (float) 0.5));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Warp.tp") + Main.getPlugin().getConfig().getString("Warp.Ranks.C.Name")));
                     }else{
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("no-permission")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("no-permission")));
                     }
                 }
                 else if (args[0].equalsIgnoreCase("D")) {
                     if(p.hasPermission("warp.rank.d")) {
-                        p.teleport(new Location(Bukkit.getWorld(Main.plugin.getConfig().getString("Warp.World")), -188.5, 68, -316.5, (float) 179.9, (float) -1.7));
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Warp.tp") + Main.plugin.getConfig().getString("Warp.Ranks.D.Name")));
+                        p.teleport(new Location(Bukkit.getWorld(Main.getPlugin().getConfig().getString("Warp.World")), -188.5, 68, -316.5, (float) 179.9, (float) -1.7));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Warp.tp") + Main.getPlugin().getConfig().getString("Warp.Ranks.D.Name")));
                     }else{
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("no-permission")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("no-permission")));
                     }
                 }
                 else if (args[0].equalsIgnoreCase("E")) {
                     if(p.hasPermission("warp.rank.e")) {
-                        p.teleport(new Location(Bukkit.getWorld(Main.plugin.getConfig().getString("Warp.World")), -188.5, 68, -249.5, (float) 180.0, (float) 1.8));
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Warp.tp") + Main.plugin.getConfig().getString("Warp.Ranks.D.Name")));
+                        p.teleport(new Location(Bukkit.getWorld(Main.getPlugin().getConfig().getString("Warp.World")), -188.5, 68, -249.5, (float) 180.0, (float) 1.8));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Warp.tp") + Main.getPlugin().getConfig().getString("Warp.Ranks.D.Name")));
                     }else{
-                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("no-permission")));
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("no-permission")));
                     }
                 }
 

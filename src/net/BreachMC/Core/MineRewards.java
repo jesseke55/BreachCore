@@ -29,9 +29,9 @@ public class MineRewards implements Listener {
 
 
             String playername = p.getName();
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You mined your first block!"));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You mined your first block!"));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco give " + p.getName() + " 5000");
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You received 5K from" + Main.plugin.getConfig().getString("Prefixes.Console")));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You received 5K from" + Main.getPlugin().getConfig().getString("Prefixes.Console")));
             Bukkit.getPlayer(playername).getWorld().playSound(location, Sound.LEVEL_UP, 1, 0);
         }
 
@@ -40,10 +40,10 @@ public class MineRewards implements Listener {
 
 
             String playername = p.getName();
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You made a new milestone!"));
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You mined 1K blocks!"));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You made a new milestone!"));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You mined 1K blocks!"));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco give " + p.getName() + " 6000");
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You received 6K from" + Main.plugin.getConfig().getString("Prefixes.Console")));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You received 6K from" + Main.getPlugin().getConfig().getString("Prefixes.Console")));
             Bukkit.getPlayer(playername).getWorld().playSound(location, Sound.LEVEL_UP, 1, 0);
         }
         if(EZBlocks.getEZBlocks().getBlocksBroken(p) ==500000000){
@@ -52,10 +52,10 @@ public class MineRewards implements Listener {
 
             String playername = p.getName();
 
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You made a new milestone!"));
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You mined 5B blocks!"));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You made a new milestone!"));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You mined 5B blocks!"));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco give " + p.getName() + " 6000000");
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("Prefixes.PrisonPrefix") + "You received 6M from" + Main.plugin.getConfig().getString("Prefixes.Console")));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getPlugin().getConfig().getString("Prefixes.PrisonPrefix") + "You received 6M from" + Main.getPlugin().getConfig().getString("Prefixes.Console")));
             Bukkit.getPlayer(playername).getWorld().playSound(location, Sound.LEVEL_UP, 1, 0);
 
         }

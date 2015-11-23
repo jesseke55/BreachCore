@@ -1,12 +1,12 @@
 package net.BreachMC.Core.Essentials;
 
+import net.BreachMC.Core.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import net.BreachMC.Core.Main;
+import org.bukkit.plugin.Plugin;
 
 /**
  * Created by Jesse on 21-11-2015.
@@ -35,7 +35,7 @@ public class Broadcast implements CommandExecutor {
                 msg += args[i] + " ";
             }
             
-            Bukkit.broadcastMessage(ChatColor.translateAlternateColors('&', msg.trim());
+            Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', msg.trim()));
         }
         return false;
     }

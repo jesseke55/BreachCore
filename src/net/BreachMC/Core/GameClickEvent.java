@@ -17,10 +17,10 @@ public class GameClickEvent implements Listener {
     @EventHandler
     public void clickEvent(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        e.setCancelled(false);
 
 
         if (e.getInventory().getName().equals(new Menus().Warps().getName())) {
+e.setCancelled(true);
 
             /** Basic rank warps */
             for (char c = 'A'; c <= 'Z'; c++) {

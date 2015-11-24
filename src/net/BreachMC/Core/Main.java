@@ -3,18 +3,18 @@ package net.BreachMC.Core;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import net.BreachMC.Core.Essentials.Broadcast;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import net.BreachMC.Core.Listeners.Join;
 
 /**
  * Created by jesse.
@@ -28,6 +28,7 @@ public class Main extends JavaPlugin implements Listener{
     private String autosavemsg;
     private String noperms;
     private String ip;
+    private String firstjoin;
     
     private static Plugin plugin;
 
@@ -66,7 +67,6 @@ public class Main extends JavaPlugin implements Listener{
     Bukkit.getPluginManager().registerEvents(new Warp(), this);
     Bukkit.getPluginManager().registerEvents(new Menus(), this);
     Bukkit.getPluginManager().registerEvents(this, this);
-    Bukkit.getPluginManager().registerEvents(new Join(), this);
 }
 
 
@@ -80,6 +80,7 @@ public class Main extends JavaPlugin implements Listener{
                     w.save();
                     w.setAutoSave(true);
                     w.setKeepSpawnInMemory(false);
+                    System.gc();
 
                 }
                 Bukkit.broadcastMessage(Main.this.prefix + Main.this.autosavecomplete);
@@ -95,6 +96,7 @@ public class Main extends JavaPlugin implements Listener{
     getConfig().addDefault("Prefixes.ETCPrefix", "&8&l>> &e");
     getConfig().addDefault("Prefixes.PrisonPrefix", "&3&lPrison &b>> ");
     getConfig().addDefault("Prefixes.Console", " &c&lCONSOLE ");
+        Join();
 }
 
 
@@ -134,6 +136,15 @@ public class Main extends JavaPlugin implements Listener{
 
     void WorldWarp(){
         getConfig().addDefault("Warp.World", "Mines");
+    }
+
+    private void Join(){
+        getConfig().addDefault("Join.first", "&bHey everybody!\n &6I am new on this server!");
+    }
+
+    private void donors(){
+        getConfig().addDefault("Donors.donormenu.name", "&bDonor Menu");
+        getConfig().addDefault("Donors.donormenu.lore", "&bOpen the donor menu");
     }
 
     void ARank(){
@@ -343,7 +354,12 @@ public class Main extends JavaPlugin implements Listener{
 
 
 
-
+    @EventHandler
+    public void onLogin(PlayerLoginEvent event){
+        if (event.getResult() == PlayerLoginEvent.Result.KICK_WHITELIST) {
+            event.setKickMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("Join.Whitelist")));
+        }
+    }
 
     void Config(){
 
@@ -362,7 +378,7 @@ public class Main extends JavaPlugin implements Listener{
         votec();
 
         Warp();
-
+donors();
 
         getConfig().options().copyDefaults(true);
         saveConfig();
@@ -374,6 +390,8 @@ public class Main extends JavaPlugin implements Listener{
         this.noperms = ChatColor.translateAlternateColorCodes('&', getConfig().getString("no-permission"));
 
         this.ip = ChatColor.translateAlternateColorCodes('&', getConfig().getString("IP"));
+
+        this.firstjoin = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Join.first"));
     }
 
 
@@ -561,7 +579,32 @@ public class Main extends JavaPlugin implements Listener{
 
 
 
+    @EventHandler
+    public void onPlayerLogin(final PlayerLoginEvent e) {
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
+            public void run() {
+                if (e.getPlayer().hasPlayedBefore()) return;
 
+                Firework f = (Firework) e.getPlayer().getWorld().spawn(e.getPlayer().getLocation(), Firework.class);
+
+                FireworkMeta fm = f.getFireworkMeta();
+                fm.addEffect(FireworkEffect.builder()
+                        .flicker(false)
+                        .trail(true)
+                        .with(FireworkEffect.Type.CREEPER)
+                        .withColor(Color.GREEN)
+                        .withFade(Color.BLUE)
+                        .build());
+                fm.setPower(3);
+                f.setFireworkMeta(fm);
+
+                e.getPlayer().chat(ChatColor.translateAlternateColorCodes('&', firstjoin));
+                for(Player p : Bukkit.getOnlinePlayers()){
+                    p.chat("Welcome "+  e.getPlayer().getName() + " on &c&lBreach &8&lPrison!");
+                }
+            }
+        }, 20);
+    }
 
 
 
